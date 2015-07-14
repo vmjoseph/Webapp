@@ -26,6 +26,7 @@
     } else {
     echo "0 results";
     }
-    $sql2="SELECT last_name WHERE first_name='Vallie' FROM student_hours";
+    $sql2="SELECT last_name WHERE first_name='Vallie' FROM student_hours ";
+    
     $db->close();
 ?>
