@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html>
+    <head>
+        
+    </head>
+    <header>
+	<section class="greenPatch"><a href="index.html"><img class="headIcon" src="tampa-bay.png"></a></section>
+	<link rel="stylesheet" href="styles.css" type="text/css">   
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    </header>
+    <body>
+        <h1>Time Sheet App</h1>
+        <button class="addStudent">Add a Student</button>
+        <button class="openSheet">View Time Sheets</button>
+        <button class="editSheet">Add Times to Sheet</button>
+        <script>
+                $(document).ready(function(){
+                    $(".addStudent").click(function(){
+                        $(".timeSheetForm").show();
+                    
+                    });
+                    
+                    $(".editSheet").click(function(){
+                         window.location = "changeSheet.php";
+                    });
+                    
+                    $(".openSheet").click(function(){
+                       window.location = "editSheet.php";
+                    });
+                    
+                    $("#openSheet").click(function(){
+                        $("#sectionSelection").val();
+                            $("#sectionLable").html("hi");
+                    });
+                });
+                
+        </script>
+        <script>
+            function autoSelectcomplete(){
+             
+                var userSelect= document.getElementById("sectionSelection").value;
+                switch (userSelect){
+                    case "WLD":
+                    document.getElementById("sectionLable").innerHTML=userSelect;
+                    break;
+                    case "WIA":
+                    document.getElementById("sectionLable").innerHTML=userSelect;
+                    break
+                    case "WTP":
+                    document.getElementById("sectionLable").innerHTML=userSelect;
+                    break;
+                default:
+                document.getElementById("sectionLable").innerHTML="Please select a Section";
+              }
+            }
+            function genderInput(){
+                 var genderSelect= document.getElementById("genders").value;
+                 console.log(genderSelect);
+            }
+            
+        </script>
+        <form class="timeSheetForm" action="submitTimesheet.php" method="POST">
+            <table class="timesheetOrganizer"> 
+                <tr><td>Last Name:</td><td><input type="text" name="last"></td></tr> 
+                <tr><td>First Name:</td><td><input type="text" name="first"><td></tr> 
+                <tr><td>Section:</td><td><select name="selectionForSection" id="sectionSelection" onchange="autoSelectcomplete()"><option value="">Select a Section</option><option value="WLD">Welding</option><option value="WIA">WIA</option><option value="WTP">WTP</option></option></select><td></tr>
+                <tr><td>SID:</td><td><span id="sectionLable"></span><input type="number" value="000" name="sIDNumber"><td></tr> 
+                <tr><td>Gender:</td><td><select name="genders" onchange="genderInput()" id="genders"><option value="Male">Male</option><option value="Female">Female</option></select></td></tr> 
+                <tr><td colspan="2"><input type="submit"></td></tr>
+            </table> 
+        </form>
+        
+    </body>
+</html>
