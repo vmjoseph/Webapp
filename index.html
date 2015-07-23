@@ -2,23 +2,34 @@
 
 <html>
     <head>
-        
+        <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+        	<link rel="stylesheet" href="styles.css" type="text/css">   
+
     </head>
     <header>
 	<section class="greenPatch"><a href="index.html"><img class="headIcon" src="tampa-bay.png"></a></section>
-	<link rel="stylesheet" href="styles.css" type="text/css">   
-<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     </header>
     <body>
-        <h1>Time Sheet App</h1>
-        <button class="addStudent">Add a Student</button>
+      <!--  <div class="welcome">Welcome to the TimeSheet App!</div>-->
+        <div class="timeSheetBox"> <img class="mainIcon" src="time2.png">
+<h1>Time Sheet App</h1>
+        <button class="addStudentButton">Add a Student</button>
         <button class="openSheet">View Time Sheets</button>
         <button class="editSheet">Add Times to Sheet</button>
         <script>
                 $(document).ready(function(){
-                    $(".addStudent").click(function(){
-                        $(".timeSheetForm").show();
-                    
+                    $(".addStudentButton").click(function(){
+                         $(".timeSheetForm").fadeTo(-20,1.0);
+                             $(".submitArea").show();
+                        // Animation complete.
+                    });
+                    $(".escape").click(function() {
+                        $(".submitArea").hide();
+                         $(".timeSheetForm").closest('form').find("input[type=text], textarea").val("");
+                         $(".timeSheetForm").closest('form').find("#sidNumber").val("");
+                         $(".timeSheetForm").closest('form').find("select").val("");
+                         $("#sectionLable").html("");
+                  
                     });
                     
                     $(".editSheet").click(function(){
@@ -32,6 +43,9 @@
                     $("#openSheet").click(function(){
                         $("#sectionSelection").val();
                             $("#sectionLable").html("hi");
+                    });
+                    $(".escape").click(function(){
+                       $(".timeSheetForm").hide(); 
                     });
                 });
                 
@@ -58,18 +72,77 @@
                  var genderSelect= document.getElementById("genders").value;
                  console.log(genderSelect);
             }
-            
+            function leadingZero(){
+               var getNumber= document.getElementById("sidNumber");
+                if (getNumber.value>=10){
+                      getNumber.value="00"+getNumber.value;
+                            console.log(getNumber);
+                 }else {
+                     
+                getNumber.value="000"+getNumber.value;
+                console.log(getNumber); 
+                 }
+            }
+            function submitVerify(){
+var nameFirst = document.getElementById("first").value.trim().length;
+var nameLast = document.getElementById("last").value.trim().length;
+var lastFour= document.getElementById("lastfour").value.trim().length;
+var sid = document.getElementById("sidNumber").value.trim().length;
+var sex = document.getElementById("genders").value;
+var section = document.getElementById("sectionLable").innerHTML.length;
+console.log(lastFour);
+if (nameFirst===0||nameLast===0||lastFour<4||section==0||sid<4){
+        alert('Please fill in the missing values');
+        if(nameLast==0){
+            document.getElementById("lastCorrecter").style.opacity = "1.0";
+        } else {
+            document.getElementById("lastCorrecter").style.opacity = "0";
+        }
+         if(nameFirst==0){
+            document.getElementById("firstCorrecter").style.opacity="1.0";
+        } else {
+             document.getElementById("firstCorrecter").style.opacity="0";
+        }
+        if(lastFour<4){
+            document.getElementById("lastFourCorrecter").style.opacity="1.0";
+        } else {
+             document.getElementById("lastFourCorrecter").style.opacity="0";
+        }
+        if(section==0){
+            document.getElementById("sectionCorrecter").style.opacity="1.0";
+        } else {
+             document.getElementById("sectionCorrecter").style.opacity="0";
+        }
+         if(sid<4){
+            document.getElementById("sidCorrecter").style.opacity="1.0";
+        } else {
+             document.getElementById("sidCorrecter").style.opacity="0";
+        }
+window.reload();
+} else {
+      document.getElementById("timeSheetForm").submit();
+}
+          
+            }
         </script>
-        <form class="timeSheetForm" action="submitTimesheet.php" method="POST">
+        <form class="timeSheetForm" id="timeSheetForm" action="submitTimesheet.php" method="POST">
+ 
             <table class="timesheetOrganizer"> 
-                <tr><td>Last Name:</td><td><input type="text" name="last"></td></tr> 
-                <tr><td>First Name:</td><td><input type="text" name="first"><td></tr> 
-                <tr><td>Section:</td><td><select name="selectionForSection" id="sectionSelection" onchange="autoSelectcomplete()"><option value="">Select a Section</option><option value="WLD">Welding</option><option value="WIA">WIA</option><option value="WTP">WTP</option></option></select><td></tr>
-                <tr><td>SID:</td><td><span id="sectionLable"></span><input type="number" value="000" name="sIDNumber"><td></tr> 
-                <tr><td>Gender:</td><td><select name="genders" onchange="genderInput()" id="genders"><option value="Male">Male</option><option value="Female">Female</option></select></td></tr> 
-                <tr><td colspan="2"><input type="submit"></td></tr>
-            </table> 
-        </form>
-        
+                <tr class="addStudent"><td class="addStudent">Last Name<span id="lastCorrecter">*</span>:</td><td class="addStudent"><input type="text" id="last" name="last"></td></tr> 
+                <tr class="addStudent"><td class="addStudent">First Name<span id="firstCorrecter">*</span>:</td><td class="addStudent"><input type="text" id="first" name="first"><td class="addStudent"></tr> 
+                <tr class="addStudent"><td class="addStudent">Section<span id="sectionCorrecter">*</span>:</td><td class="addStudent"><select name="selectionForSection" id="sectionSelection" onchange="autoSelectcomplete()"><option value="">Select a Section</option><option value="WLD">Welding</option><option value="WIA">WIA</option><option value="WTP">WTP</option></option></select><td class="addStudent"></tr>
+                <tr class="addStudent"><td class="addStudent">SID<span id="sidCorrecter">*</span>:</td><td class="addStudent"><span id="sectionLable"></span><input onchange="leadingZero()" id="sidNumber" type="number" name="sIDNumber"><td class="addStudent"></tr> 
+                <tr class="addStudent"><td class="addStudent">Gender<span id="genderCorrecter">*</span>:</td><td class="addStudent"><select name="genders" onchange="genderInput()" id="genders"><option value="Male">Male</option><option value="Female">Female</option></select></td></tr> 
+                <tr class="addStudent"><td class="addStudent">Last 4 (SSN)<span id="lastFourCorrecter">*</span>:</td><td class="addStudent"><input type="text" id="lastfour" name="lastfour" size="4" maxlength="4"></td></tr>       
+              
+            </table>
+            </form>
+                    <table class="submitArea">
+             <tr class="addStudent"><td colspan="2"><button class="addSubmit" onclick="submitVerify()" >Submit</button><img class="escape" src="Remove_button_512.png"></td></tr>
+
+
+        </table>
+        </div>
     </body>
+
 </html>
