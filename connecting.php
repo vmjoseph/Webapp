@@ -8,58 +8,62 @@ $dsn = "pgsql:"
     . "password=T00C1WPiv8B2-EdRQkSTl_WIkT";
  
 $db = new PDO($dsn);
+    // Connecting, selecting database
+$dbconn = pg_connect("host=ec2-107-21-125-143.compute-1.amazonaws.com dbname=deadm3k5bm4tsv user=dvkcevygfoffdp password=T00C1WPiv8B2-EdRQkSTl_WIkT")
+
+        or die('Could not connect: ' . pg_last_error());
 ?>
 <html>
- <head>
+<head>
      <script>
-                $(document).ready(function(){
-                    $(".addStudentButton").click(function(){
-                         $(".timeSheetForm").show("specialEasing");
-                             $(".submitArea").show("specialEasing");
-                        // Animation complete.
-                    });
-                    $(".escape").click(function() {
-                        $(".submitArea").hide();
-                         $(".timeSheetForm").closest('form').find("input[type=text], textarea").val("");
-                         $(".timeSheetForm").closest('form').find("#sidNumber").val("");
-                         $(".timeSheetForm").closest('form').find("select").val("");
-                         $("#sectionLable").html("");
+                // $(document).ready(function(){
+                //     $(".addStudentButton").click(function(){
+                //          $(".timeSheetForm").show("specialEasing");
+                //              $(".submitArea").show("specialEasing");
+                //         // Animation complete.
+                //     });
+                //     $(".escape").click(function() {
+                //         $(".submitArea").hide();
+                //          $(".timeSheetForm").closest('form').find("input[type=text], textarea").val("");
+                //          $(".timeSheetForm").closest('form').find("#sidNumber").val("");
+                //          $(".timeSheetForm").closest('form').find("select").val("");
+                //          $("#sectionLable").html("");
                   
-                    });
+                //     });
                     
-                    $(".editSheet").click(function(){
-                         window.location = "changeSheet.php";
-                    });
+                //     $(".editSheet").click(function(){
+                //          window.location = "changeSheet.php";
+                //     });
                     
-                    $(".openSheet").click(function(){
-                       window.location = "editSheet.php";
-                    });
+                //     $(".openSheet").click(function(){
+                //       window.location = "editSheet.php";
+                //     });
                     
-                    $("#openSheet").click(function(){
-                        $("#sectionSelection").val();
-                            $("#sectionLable").html("hi");
-                    });
-                    $(".escape").click(function(){
-                       $(".timeSheetForm").hide(); 
-                    });
+                //     $("#openSheet").click(function(){
+                //         $("#sectionSelection").val();
+                //             $("#sectionLable").html("hi");
+                //     });
+                //     $(".escape").click(function(){
+                //       $(".timeSheetForm").hide(); 
+                //     });
                     
-                    $(".toggleTool").click(function(){
-                        $(".sideSection").toggle("specialEasing", function() { });
-                        //  $("#quickNavHolder").css("margin-left", "0px");
-                    });
+                //     $(".toggleTool").click(function(){
+                //         $(".sideSection").toggle("specialEasing", function() { });
+                //         //  $("#quickNavHolder").css("margin-left", "0px");
+                //     });
                     
-                     $("#add").click(function(){
-                         $(".timeSheetForm").show("specialEasing");
-                         $(".submitArea").show("specialEasing");
-                        });
-                    $("#view").click(function(){
-                        window.location.replace("editSheet.php");
-                        });
-                    $("#edit").click(function(){
-                        window.location.replace("changeSheet.php");
+                //      $("#add").click(function(){
+                //          $(".timeSheetForm").show("specialEasing");
+                //          $(".submitArea").show("specialEasing");
+                //         });
+                //     $("#view").click(function(){
+                //         window.location.replace("editSheet.php");
+                //         });
+                //     $("#edit").click(function(){
+                //         window.location.replace("changeSheet.php");
    
-                    }); 
-                });
+                //     }); 
+                // });
                 
         </script>
         <script>
@@ -80,10 +84,11 @@ $db = new PDO($dsn);
                 document.getElementById("sectionLable").innerHTML="Please select a Section";
               }
             }
-            function genderInput(){
-                 var genderSelect= document.getElementById("genders").value;
-                 console.log(genderSelect);
-            }
+            // function genderInput(){
+            //      var genderSelect= document.getElementById("genders").value;
+            //      console.log(genderSelect);
+            // }
+
             function leadingZero(){
                var getNumber= document.getElementById("sidNumber");
                 if (getNumber.value>=10){
@@ -94,7 +99,8 @@ $db = new PDO($dsn);
                 getNumber.value="000"+getNumber.value;
                 console.log(getNumber); 
                  }
-            }
+            }</script>
+            <!--
             function submitVerify(){
 var nameFirst = document.getElementById("first").value.trim().length;
 var nameLast = document.getElementById("last").value.trim().length;
@@ -150,7 +156,7 @@ window.reload();
             }
         </script>
   <title>Employees</title>
- </head>
+ </head>-->
  <body>
 
   <form action=" " method="POST">
@@ -172,8 +178,19 @@ $sectionN=$_POST['selectionForSection'];
 $genderN=$_POST['genders'];
 $lastfN=$_POST['lastfour'];
 if (isset($_POST['submit'])){
- 
-$query = "INSERT INTO student_hours (sID, last_name, first_name, last_four ,section) VALUES ('$sid','$last','$first','$last4','$section')";
+    
+
+
+//perform the insert using pg_query
+$result = pg_query($dbconn, "INSERT INTO student_hours2(sid, last_name,first_name,mon, tue, wed, thurs, fri,week_total , last_four, section ) 
+                  VALUES('$sid', '$lastN', '$firstN','4','4','4','4','4', '4', '$lastfN', '$sectionN');");
+
+//dump the result object
+var_dump($result);
+
+// Closing connection
+pg_close($dbconn);
+
 
 }
 // ?>
@@ -181,3 +198,5 @@ $query = "INSERT INTO student_hours (sID, last_name, first_name, last_four ,sect
   </table>
  </body>
 </html>
+
+
