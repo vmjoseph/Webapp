@@ -1,22 +1,17 @@
-<!doctype html>
-
+<?php
+$dsn = "pgsql:"
+    . "host=ec2-107-21-125-143.compute-1.amazonaws.com;"
+    . "dbname=deadm3k5bm4tsv;"
+    . "user=dvkcevygfoffdp;"
+    . "port=5432;"
+    . "sslmode=require;"
+    . "password=T00C1WPiv8B2-EdRQkSTl_WIkT";
+ 
+$db = new PDO($dsn);
+?>
 <html>
-    <head>
-        <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-        	<link rel="stylesheet" href="styles.css" type="text/css">   
-
-    </head>
-    <header>
-	<section class="greenPatch"><a href="index.html"><img class="headIcon" src="tampa-bay.png"></a></section>
-    </header>
-    <body>
-      <!--  <div class="welcome">Welcome to the TimeSheet App!</div>-->
-        <div class="timeSheetBox"> <img class="mainIcon" src="time2.png">
-<h1>Time Sheet App</h1>
-        <button class="addStudentButton">Add a Student</button>
-        <button class="openSheet">View Time Sheets</button>
-        <button class="editSheet">Add Times to Sheet</button>
-        <script>
+ <head>
+     <script>
                 $(document).ready(function(){
                     $(".addStudentButton").click(function(){
                          $(".timeSheetForm").show("specialEasing");
@@ -154,31 +149,35 @@ window.reload();
                 }
             }
         </script>
-        <form class="timeSheetForm" id="timeSheetForm" action="submitTimesheet.php" method="POST">
- 
-            <table class="timesheetOrganizer"> 
+  <title>Employees</title>
+ </head>
+ <body>
+
+  <form action=" " method="POST">
+     <table class="timesheetOrganizer"> 
                 <tr class="addStudent"><td class="addStudent">Last Name<span id="lastCorrecter">*</span>:</td><td class="addStudent"><input type="text" id="last" name="last"></td></tr> 
                 <tr class="addStudent"><td class="addStudent">First Name<span id="firstCorrecter">*</span>:</td><td class="addStudent"><input type="text" id="first" name="first"><td class="addStudent"></tr> 
                 <tr class="addStudent"><td class="addStudent">Section<span id="sectionCorrecter">*</span>:</td><td class="addStudent"><select name="selectionForSection" id="sectionSelection" onchange="autoSelectcomplete()"><option value="">Select a Section</option><option value="WLD">Welding</option><option value="WIA">WIA</option><option value="WTP">WTP</option></option></select><td class="addStudent"></tr>
                 <tr class="addStudent"><td class="addStudent">SID<span id="sidCorrecter">*</span>:</td><td class="addStudent"><span id="sectionLable"></span><input onchange="leadingZero()" id="sidNumber" type="number" name="sIDNumber"><td class="addStudent"></tr> 
                 <tr class="addStudent"><td class="addStudent">Gender<span id="genderCorrecter">*</span>:</td><td class="addStudent"><select name="genders" onchange="genderInput()" id="genders"><option value="Male">Male</option><option value="Female">Female</option></select></td></tr> 
                 <tr class="addStudent"><td class="addStudent">Last 4 (SSN)<span id="lastFourCorrecter">*</span>:</td><td class="addStudent"><input type="text" id="lastfour" name="lastfour" size="4" maxlength="4"></td></tr>       
-              
+              <tr><td colspan="2"><input name="submit" type="submit" value ="Test Submit"></td></tr>
             </table>
-            </form>
-                    <table class="submitArea">
-             <tr class="addStudent"><td colspan="2"><button class="addSubmit" onclick="submitVerify()" >Submit</button><img class="escape" src="Remove_button_512.png"></td></tr>
+  </form>
+<?php
+$sid=$_POST['sIDNumber'];
+$lastN=$_POST['last'];
+$firstN=$_POST['first'];
+$sectionN=$_POST['selectionForSection'];
+$genderN=$_POST['genders'];
+$lastfN=$_POST['lastfour'];
+if (isset($_POST['submit'])){
+ 
+$query = "INSERT INTO student_hours (sID, last_name, first_name, last_four ,section) VALUES ('$sid','$last','$first','$last4','$section')";
 
-
-        </table>
-        </div>
-    </body>
-    <div id="quickNavHolder">
-<section class="sideSection" id="sideSection">
-    <div id="navMenuSide"><h3>Quick Nav</h3></div>
-        <a href="#" id="add"class="noDecoration"><div id="navLinkSide"><img class="testImage"src="add.png" >Add Student</div></a>
-        <a href="#" id="view" class="noDecoration"><div id="navLinkSide"><img class="testImage"src="hourglass.png" >View Sheets</div></a>
-        <a href="#" id="edit" class="noDecoration"><div id="navLinkSide"><img class="testImage"src="edit.png" >Edit Times</div></a>
-</section><img class="toggleTool" id="toggleTool" onclick="togglingMenu()" src="right133.png">
-</div>
+}
+// ?>
+   </tbody>
+  </table>
+ </body>
 </html>

@@ -1,0 +1,40 @@
+<div id="quickNavHolder2">
+<section class="sideSection" id="sideSection">
+    <div id="navMenuSide"><h3>Quick Nav</h3></div>
+    <a href="#" id="add"class="noDecoration"><div id="navLinkSide"><img class="testImage"src="add.png" >Add Student</div></a>
+    <a href="#" id="view" class="noDecoration"><div id="navLinkSide"><img class="testImage"src="hourglass.png" >View Sheets</div></a>
+    <a href="#" id="edit" class="noDecoration"><div id="navLinkSide"><img class="testImage"src="edit.png" >Edit Times</div></a>
+</section><img class="toggleTool" id="toggleTool" onclick="togglingMenu()" src="right133.png">
+</div>
+<div class="blackOut"></div>
+<script>
+$(document).ready(function(){
+    $(".toggleTool").click(function(){
+        $(".sideSection").toggle("specialEasing", function() { });
+        $(".blackOut").toggle();
+        //  $("#quickNavHolder").css("margin-left", "0px");
+    });
+    $("#add").click(function(){
+   window.location.replace("index.html");
+    });
+    $("#view").click(function(){
+   window.location.replace("editSheet.php");
+    });
+    $("#edit").click(function(){
+   window.location.replace("changeSheet.php");
+    });
+});
+    var toggle=toggle
+        function togglingMenu(){
+                toggle=!toggle;
+                console.log(toggle);
+                var panel= document.getElementById("toggleTool");
+                panel.style.margin="0px 198px ";
+                panel.style.transform="rotate(180deg)"
+                    if(toggle==false){
+                      panel.style.margin="0 0px";
+                      panel.style.transform="rotate(360deg)"
+            }
+        }
+</script>
+                

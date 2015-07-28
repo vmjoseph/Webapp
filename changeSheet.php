@@ -1,7 +1,8 @@
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<?php include 'header.html';?>
+<?php include 'header.html';
+include 'pullOutmenu.html';?>
 <?php echo "<form action='changeSheet.php' method='POST'>";
 #<input name='dateSelector' type='week'>
 ?>
@@ -28,7 +29,7 @@
         //get firstname from select html tags
     $firstName=substr($fullName, 0, strpos($fullName, ','));
     // echo "<div class='info2'>a</div> ";
-
+echo "<h1> Edit Timesheets </h1>";
     // sql statement that retrieves all data from student_hours table
     $sql = "SELECT sID, last_name, first_name, mon, tue, wed, tue, thurs, fri, week_total, last_four, section FROM student_hours";
     $result = $db->query($sql);
@@ -48,7 +49,7 @@
     
      if ($result->num_rows > 0) {
     // output data of each row as select option
-    echo "<select name='studentNames' onclick='chooseProfile()'>";
+    echo "<select name='studentNames' id='studentNames' onchange='chooseProfile()'>";
     while($row = $result->fetch_assoc()) {
        echo "<option value=".$row["first_name"]. ",". $row["last_name"].">" .$row["last_name"].", ".$row["first_name"]. "</option>"; 
        
@@ -57,13 +58,20 @@
         //to display if there are no rows in the database
    
     }
-//   echo"<script>
-//           function chooseProfile(){
-//               document.getElementById('profileHolder').style.backgroundColor='red';
-//               var x=document.getElementById('info2').innerHTML='$firstName'+ ' ' + '$lastName';
-//               console.log('red');
-//             }
-//       </script>";
+    
+    //first name $lastName=substr($fullName, strpos($fullName, ",") + 1);  
+    // last name $firstName=substr($fullName, 0, strpos($fullName, ','));
+  echo"<script>
+          function chooseProfile(){
+             var names= document.getElementById('studentNames');
+             var nameTrue=names.options[names.selectedIndex].text;
+            var nameFirst=nameTrue.substr(nameTrue.indexOf(',') + 1);
+            var nameLast=nameTrue.slice(0, nameTrue.indexOf(','));
+             console.log(nameFirst);
+             console.log(nameLast);
+             
+            }
+      </script>";
 
     #Grab Mon Hours from Database where the first name matches the select option dropdown
     

@@ -4,6 +4,12 @@ height: 70px;
 background-color:#629C44;
 transition:0.5s;
 }
+.top{
+width:100%;
+height: 70px;
+background-color:#629C44;
+transition:0.5s;
+}
 .headIcon{
 width:auto;
 height:70px;
@@ -248,9 +254,12 @@ padding:5px 10px 10px 2px;
  border-bottom-right-radius:10px;
 }
 .noDecoration{
-    text-decoration:none;    
+    text-decoration:none;
+    color:white;
 }
-
+.noDecoration{
+    text-decoration:none;
+}
 .submitHours{
     margin-left:40px;
     border:none;
@@ -328,4 +337,64 @@ transition:0.5s;
 border-radius:10px;
     cursor:pointer;
 
+}
+.sideSection{
+    width:200px;
+    height:400px;
+    background-color:#629C44;
+    position:absolute;
+    z-index:10;
+    margin-top:-20%;
+    display:none;
+      border-top-right-radius:6px;
+       border-bottom-right-radius:6px;
+}
+#navLinkSide{
+  background-color:#92D36E;
+  height:100px;
+  text-align:center;
+  transition:0.5s;   
+  line-height:20px;
+  padding-top:20px;
+
+}
+#navLinkSide:hover{
+background-color:#629C44;
+    
+}
+#navMenuSide{
+    
+}
+.testImage{
+width:50px;
+height:auto;
+display:block;
+margin: 0 auto;
+}
+h3{
+     font-family: 'Source Sans Pro', sans-serif;
+     padding-top:5px;
+     font-size:20px;
+     text-align:left;
+     padding-left:10px;
+}
+.toggleTool{
+        position:absolute;
+    z-index:10;
+    margin-top:-20%;
+     transform: rotate(7deg);
+     transition:0.5s;
+}
+.toggleTool:hover{
+    cursor:pointer;
+}
+#quickNavHolder{
+    transform: 2s;
+    /*margin-left:-200px;*/
+}
+#quickNavHolder2{
+    transform: 2s;
+margin-top:200px;
+    position:absolute;
+    z-index:10;
 }
