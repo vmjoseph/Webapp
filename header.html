@@ -1,6 +1,29 @@
- <header>
-	<section class="greenPatch"><a href="index.html"><img class="headIcon" src="tampa-bay.png"></a></section>
-	<link rel="stylesheet" href="styles.css" type="text/css">   
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Cabin|Montserrat' rel='stylesheet' type='text/css'>
-<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-    </header>
+ 
+ <head>
+<link rel="stylesheet" type="text/css" title="green" href="styles.css">
+<link rel="alternate stylesheet" type="text/css" title="blue" href="styles2.css">
+<link href='http://fonts.googleapis.com/css?family=Lato|Quattrocento+Sans|Oxygen|Hind|Raleway' rel='stylesheet' type='text/css'>
+</head>
+<?php
+session_start();
+
+
+    // if (isset($_SESSION['username'])) {
+    //    echo "<div id='welcomeMessage'>Welcome, ". $_SESSION['firstName']. "</div>";
+    //  }else {
+           
+     //      echo "<script>alert('you must be logged in to view this page')</script>";
+     //      echo "<script>window.open('login.php','_self')</script>";
+     //      echo "you have logged out successfully";
+      
+     // }
+?>
+<header>
+<a class="logLink" href="logout.php"><span class="logout"><img height="50px" width="auto" src="rightarrow10.png"><br>Logout</span></a>
+<section class="greenPatch"><a href="careerindex.php"><img class="headIcon" src="tampa-bay.png"></a></section>
+<ul class="navBar">
+<a class="navLink" href="download.php"<li class="navOption">first day orientation</li></a><!--
+--><a class="navLink" href="documentation.php"<li class="navOption">documentation </li></a><!--
+--><a class="navLink" href="http://mylabs.px.pearsoned.com/Pegasus/frmLogin.aspx?s=3"<li class="navOption">pearson custom </li></a>
+</ul>
+</header>
