@@ -70,17 +70,26 @@ pg_close($dbconn);
 
 
 
- //$result2= pg_query($dbconn,"INSERT INTO student_hours2 (sID, last_name, first_name, last_four ,section) 
-         //       VALUES ('$sid','$last','$first','$last4','$section')");
+ $result2= pg_query($dbconn,"INSERT INTO student_hours (sID, last_name, first_name, last_four ,section) 
+                    VALUES ('$sid','$last','$first','$last4','$section')");
+                    
+if (!$result) {
+ echo "<div class='successCheck'>New student was not created!<br> The following error has occured:"."Error: ". $result2 . " <br> ".($db)."!</div>";
+exit;
+}else{
+   
+echo  "<div class='successCheck'>New student created successfully!<div class='return'>Click Here to Return <a class='noDecoration2'href='index.html'><img src='return.png'></a></div></div>";
+    
+}
                 
 // var_dump($result);
 
 // Closing connection
 //pg_close($dbconn);
     // if (mysqli_query($db, $sql2)){
-    //     echo "<div class='successCheck'>New student created successfully!<div class='return'>Click Here to Return <a class='noDecoration2'href='index.html'><img src='return.png'></a></div></div>";
+    //     echo
     // } else {
-    //     echo "<div class='successCheck'>New student was not created!<br> The following error has occured:"."Error: ". $sql2 . " <br> ".mysqli_error($db)."!</div>";
+    //     echo 
     //     # echo "Error: ". $sql2 . " <br> ".mysqli_error($db);
     // }
 
