@@ -1,0 +1,184 @@
+<!doctype html>
+
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+        	<link rel="stylesheet" href="styles.css" type="text/css">   
+
+    </head>
+    <header>
+	<section class="greenPatch"><a href="index.html"><img class="headIcon" src="tampa-bay.png"></a></section>
+    </header>
+    <body>
+      <!--  <div class="welcome">Welcome to the TimeSheet App!</div>-->
+        <div class="timeSheetBox"> <img class="mainIcon" src="time2.png">
+<h1>Time Sheet App</h1>
+        <button class="addStudentButton">Add a Student</button>
+        <button class="openSheet">View Time Sheets</button>
+        <button class="editSheet">Add Times to Sheet</button>
+        <script>
+                $(document).ready(function(){
+                    $(".addStudentButton").click(function(){
+                         $(".timeSheetForm").show("specialEasing");
+                             $(".submitArea").show("specialEasing");
+                        // Animation complete.
+                    });
+                    $(".escape").click(function() {
+                        $(".submitArea").hide();
+                         $(".timeSheetForm").closest('form').find("input[type=text], textarea").val("");
+                         $(".timeSheetForm").closest('form').find("#sidNumber").val("");
+                         $(".timeSheetForm").closest('form').find("select").val("");
+                         $("#sectionLable").html("");
+                  
+                    });
+                    
+                    $(".editSheet").click(function(){
+                         window.location = "changeSheet.1.php";
+                    });
+                    
+                    $(".openSheet").click(function(){
+                       window.location = "editSheet.1.php";
+                    });
+                    
+                    $("#openSheet").click(function(){
+                        $("#sectionSelection").val();
+                            $("#sectionLable").html("hi");
+                    });
+                    $(".escape").click(function(){
+                       $(".timeSheetForm").hide(); 
+                    });
+                    
+                    $(".toggleTool").click(function(){
+                        $(".sideSection").toggle("specialEasing", function() { });
+                        //  $("#quickNavHolder").css("margin-left", "0px");
+                    });
+                    
+                     $("#add").click(function(){
+                         $(".timeSheetForm").show("specialEasing");
+                         $(".submitArea").show("specialEasing");
+                        });
+                    $("#view").click(function(){
+                        window.location.replace("editSheet.php");
+                        });
+                    $("#edit").click(function(){
+                        window.location.replace("changeSheet.php");
+   
+                    }); 
+                });
+                
+        </script>
+        <script>
+            function autoSelectcomplete(){
+             
+                var userSelect= document.getElementById("sectionSelection").value;
+                switch (userSelect){
+                    case "WLD":
+                    document.getElementById("sectionLable").innerHTML=userSelect;
+                    break;
+                    case "WIA":
+                    document.getElementById("sectionLable").innerHTML=userSelect;
+                    break
+                    case "WTP":
+                    document.getElementById("sectionLable").innerHTML=userSelect;
+                    break;
+                default:
+                document.getElementById("sectionLable").innerHTML="Please select a Section";
+              }
+            }
+            function genderInput(){
+                 var genderSelect= document.getElementById("genders").value;
+                 console.log(genderSelect);
+            }
+            function leadingZero(){
+               var getNumber= document.getElementById("sidNumber");
+                if (getNumber.value>=10){
+                      getNumber.value="00"+getNumber.value;
+                            console.log(getNumber);
+                 }else {
+                     
+                getNumber.value="000"+getNumber.value;
+                console.log(getNumber); 
+                 }
+            }
+            function submitVerify(){
+var nameFirst = document.getElementById("first").value.trim().length;
+var nameLast = document.getElementById("last").value.trim().length;
+var lastFour= document.getElementById("lastfour").value.trim().length;
+var sid = document.getElementById("sidNumber").value.trim().length;
+var sex = document.getElementById("genders").value;
+var section = document.getElementById("sectionLable").innerHTML.length;
+console.log(lastFour);
+if (nameFirst===0||nameLast===0||lastFour<4||section==0||sid<4){
+        alert('Please fill in the missing values');
+        if(nameLast==0){
+            document.getElementById("lastCorrecter").style.opacity = "1.0";
+        } else {
+            document.getElementById("lastCorrecter").style.opacity = "0";
+        }
+         if(nameFirst==0){
+            document.getElementById("firstCorrecter").style.opacity="1.0";
+        } else {
+             document.getElementById("firstCorrecter").style.opacity="0";
+        }
+        if(lastFour<4){
+            document.getElementById("lastFourCorrecter").style.opacity="1.0";
+        } else {
+             document.getElementById("lastFourCorrecter").style.opacity="0";
+        }
+        if(section==0){
+            document.getElementById("sectionCorrecter").style.opacity="1.0";
+        } else {
+             document.getElementById("sectionCorrecter").style.opacity="0";
+        }
+         if(sid<4){
+            document.getElementById("sidCorrecter").style.opacity="1.0";
+        } else {
+             document.getElementById("sidCorrecter").style.opacity="0";
+        }
+window.reload();
+} else {
+      document.getElementById("timeSheetForm").submit();
+}
+          
+            }
+            var toggle=toggle
+            function togglingMenu(){
+                toggle=!toggle;
+                console.log(toggle);
+                var panel= document.getElementById("toggleTool");
+                panel.style.margin="-338px 198px ";
+                panel.style.transform="rotate(180deg)"
+                if(toggle==false){
+                  panel.style.margin="-338px 0px";
+                  panel.style.transform="rotate(360deg)"
+                }
+            }
+        </script>
+        <form class="timeSheetForm" id="timeSheetForm" action="submitTimesheet.1.php" method="POST">
+ 
+            <table class="timesheetOrganizer"> 
+                <tr class="addStudent"><td class="addStudent">Last Name<span id="lastCorrecter">*</span>:</td><td class="addStudent"><input type="text" id="last" name="last"></td></tr> 
+                <tr class="addStudent"><td class="addStudent">First Name<span id="firstCorrecter">*</span>:</td><td class="addStudent"><input type="text" id="first" name="first"><td class="addStudent"></tr> 
+                <tr class="addStudent"><td class="addStudent">Section<span id="sectionCorrecter">*</span>:</td><td class="addStudent"><select name="selectionForSection" id="sectionSelection" onchange="autoSelectcomplete()"><option value="">Select a Section</option><option value="WLD">Welding</option><option value="WIA">WIA</option><option value="WTP">WTP</option></option></select><td class="addStudent"></tr>
+                <tr class="addStudent"><td class="addStudent">SID<span id="sidCorrecter">*</span>:</td><td class="addStudent"><span id="sectionLable"></span><input onchange="leadingZero()" id="sidNumber" type="number" name="sIDNumber"><td class="addStudent"></tr> 
+                <tr class="addStudent"><td class="addStudent">Gender<span id="genderCorrecter">*</span>:</td><td class="addStudent"><select name="genders" onchange="genderInput()" id="genders"><option value="Male">Male</option><option value="Female">Female</option></select></td></tr> 
+                <tr class="addStudent"><td class="addStudent">Last 4 (SSN)<span id="lastFourCorrecter">*</span>:</td><td class="addStudent"><input type="text" id="lastfour" name="lastfour" size="4" maxlength="4"></td></tr>       
+              
+            </table>
+            </form>
+                    <table class="submitArea">
+             <tr class="addStudent"><td colspan="2"><button class="addSubmit" onclick="submitVerify()" >Submit</button><img class="escape" src="Remove_button_512.png"></td></tr>
+
+
+        </table>
+        </div>
+    </body>
+    <div id="quickNavHolder">
+<section class="sideSection" id="sideSection">
+    <div id="navMenuSide"><h3>Quick Nav</h3></div>
+        <a href="#" id="add"class="noDecoration"><div id="navLinkSide"><img class="testImage"src="add.png" >Add Student</div></a>
+        <a href="#" id="view" class="noDecoration"><div id="navLinkSide"><img class="testImage"src="hourglass.png" >View Sheets</div></a>
+        <a href="#" id="edit" class="noDecoration"><div id="navLinkSide"><img class="testImage"src="edit.png" >Edit Times</div></a>
+</section><img class="toggleTool" id="toggleTool" onclick="togglingMenu()" src="right133.png">
+</div>
+</html>
