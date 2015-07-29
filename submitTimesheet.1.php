@@ -56,24 +56,24 @@ $result = pg_query($dbconn, "INSERT INTO students (first_name, last_name, sectio
 
 
 //dump the result object
-// var_dump($result);
-if (!$result) {
- echo "<div class='successCheck'>New student was not created!<br> The following error has occured:"."Error: ". $sql2 . " <br> ".$result.($db)."!</div>";
-exit;
-}else{
+//  var_dump($result);
+// if (!$result) {
+//  echo "<div class='successCheck'>New student was not created!<br> The following error has occured:"."Error: ". $sql2 . " <br> ".$result.($db)."!</div>";
+// exit;
+// }else{
    
-echo "<div class='successCheck'>New student created successfully!<div class='return'>Click Here to Return <a class='noDecoration2'href='index.html'><img src='return.png'></a></div></div>";
+// echo "<div class='successCheck'>New student created successfully!<div class='return'>Click Here to Return <a class='noDecoration2'href='index.html'><img src='return.png'></a></div></div>";
     
-}
-// Closing connection
-pg_close($dbconn);
+// }
+// // Closing connection
+// pg_close($dbconn);
 
 
 
  $result2= pg_query($dbconn,"INSERT INTO student_hours (sID, last_name, first_name, last_four ,section) 
                     VALUES ('$sid','$last','$first','$last4','$section')");
-                    
-if (!$result) {
+     var_dump($result2);                
+if (!$result2) {
  echo "<div class='successCheck'>New student was not created!<br> The following error has occured:"."Error: ". $result2 . " <br> ".($db)."!</div>";
 exit;
 }else{
