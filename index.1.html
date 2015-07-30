@@ -14,9 +14,10 @@
 --><a class="navLink" href="http://mylabs.px.pearsoned.com/Pegasus/frmLogin.aspx?s=3"<li class="navOption">pearson custom </li></a>
 </ul>
 </header>
-    <body>
+    <body >
       <!--  <div class="welcome">Welcome to the TimeSheet App!</div>-->
         <div class="timeSheetBox"> <img class="mainIcon" src="images/time2.png">
+        <!--<img class-->
 <h1>Time Sheet App</h1>
         <button class="addStudentButton">Add a Student</button>
         <button class="openSheet">View Time Sheets</button>
@@ -146,16 +147,16 @@ window.reload();
 }
           
             }
-            var toggle=toggle
+            var toggle=toggle;
             function togglingMenu(){
                 toggle=!toggle;
                 console.log(toggle);
                 var panel= document.getElementById("toggleTool");
                 panel.style.margin="-338px 198px ";
-                panel.style.transform="rotate(180deg)"
+                panel.style.transform="rotate(180deg)";
                 if(toggle==false){
                   panel.style.margin="-338px 0px";
-                  panel.style.transform="rotate(360deg)"
+                  panel.style.transform="rotate(360deg)";
                 }
             }
         </script>
@@ -186,4 +187,10 @@ window.reload();
         <a href="#" id="edit" class="noDecoration"><div id="navLinkSide"><img class="testImage"src="images/edit.png" >Edit Times</div></a>
 </section><img class="toggleTool" id="toggleTool" onclick="togglingMenu()" src="images/right133.png">
 </div>
+<hr>
+
+<h3 class="greyed"><center>Click <a href="timesheet.pdf">here</a> for Time Sheet Fillable PDF</center></h3> 
+<footer>
+<a href="mailto:valliejoseph@gmail.com?Subject=Techsupport%20Request" target="_top">Vallie Joseph</a> @ Tally LLC  &copy; 2015-<?php echo date("Y")?>
+</footer>
 </html>

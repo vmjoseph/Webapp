@@ -748,3 +748,9 @@ tr.loginRow:nth-child(even){
 /*    border-color:#F0F0F0;*/
 
 /*}*/
+.greyed{
+    color:lightgrey;
+}
+hr{
+    border-color:white;
+}

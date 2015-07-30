@@ -79,10 +79,10 @@ if (!$result2) {
 exit;
 }else{
    
-echo  "<div class='successCheck'>New student created successfully!<div class='return'>Click Here to Return <a class='noDecoration2'href='index.html'><img src='images/return.png'></a></div></div>";
+echo  "<div class='successCheck'>New student created successfully!<div class='return'>Click Here to Return <a class='noDecoration2'href='index.1.html'><img src='images/return.png'></a></div></div>";
     
 }
-
+include 'footer.html';
 
     
     
