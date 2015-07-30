@@ -34,9 +34,9 @@ $last4=$_POST['lastfour'];
 <?php 
 echo "<section id='avatarHolder'>";
 if ($gender==="Female"){
-    echo "<img class='avatarIcon' src='femaleIcon.png'>";
+    echo "<img class='avatarIcon' src='images/femaleIcon.png'>";
 }else {
-    echo "<img class='avatarIcon' src='maleIcon.png'>"; 
+    echo "<img class='avatarIcon' src='images/maleIcon.png'>"; 
 }
 echo "</section>";
 ?>
@@ -56,7 +56,7 @@ echo "</section>";
 
  $sql2="INSERT INTO student_hours (sID, last_name, first_name, last_four ,section) VALUES ('$sid','$last','$first','$last4','$section')";
     if (mysqli_query($db, $sql2)){
-        echo "<div class='successCheck'>New student created successfully!<div class='return'>Click Here to Return <a class='noDecoration2'href='index.html'><img src='return.png'></a></div></div>";
+        echo "<div class='successCheck'>New student created successfully!<div class='return'>Click Here to Return <a class='noDecoration2'href='index.html'><img src='images/return.png'></a></div></div>";
     } else {
         echo "<div class='successCheck'>New student was not created!<br> The following error has occured:"."Error: ". $sql2 . " <br> ".mysqli_error($db)."!</div>";
         # echo "Error: ". $sql2 . " <br> ".mysqli_error($db);

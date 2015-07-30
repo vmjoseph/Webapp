@@ -6,8 +6,8 @@
         	<link rel="stylesheet" href="styles.css" type="text/css">   
     </head>
 <header>
-<a class="logLink" href="logout.php"><span class="logout"><img height="50px" width="auto" src="rightarrow10.png"><br>Logout</span></a>
-<section class="greenPatch"><a href="careerindex.php"><img class="headIcon" src="tampa-bay.png"></a></section>
+<a class="logLink" href="logout.php"><span class="logout"><img height="50px" width="auto" src="images/rightarrow10.png"><br>Logout</span></a>
+<section class="greenPatch"><a href="careerindex.php"><img class="headIcon" src="images/tampa-bay.png"></a></section>
 <ul class="navBar">
 <a class="navLink" href="download.php"<li class="navOption">first day orientation</li></a><!--
 --><a class="navLink" href="documentation.php"<li class="navOption">documentation </li></a><!--
@@ -16,7 +16,7 @@
 </header>
     <body>
       <!--  <div class="welcome">Welcome to the TimeSheet App!</div>-->
-        <div class="timeSheetBox"> <img class="mainIcon" src="time2.png">
+        <div class="timeSheetBox"> <img class="mainIcon" src="images/time2.png">
 <h1>Time Sheet App</h1>
         <button class="addStudentButton">Add a Student</button>
         <button class="openSheet">View Time Sheets</button>
@@ -63,10 +63,10 @@
                          $(".submitArea").show("specialEasing");
                         });
                     $("#view").click(function(){
-                        window.location.replace("editSheet.php");
+                        window.location.replace("editSheet.1.php");
                         });
                     $("#edit").click(function(){
-                        window.location.replace("changeSheet.php");
+                        window.location.replace("changeSheet.1.php");
    
                     }); 
                 });
@@ -172,7 +172,7 @@ window.reload();
             </table>
             </form>
                     <table class="submitArea">
-             <tr class="addStudent"><td colspan="2"><button class="addSubmit" onclick="submitVerify()" >Submit</button><img class="escape" src="Remove_button_512.png"></td></tr>
+             <tr class="addStudent"><td colspan="2"><button class="addSubmit" onclick="submitVerify()" >Submit</button><img class="escape" src="images/Remove_button_512.png"></td></tr>
 
 
         </table>
@@ -181,9 +181,9 @@ window.reload();
     <div id="quickNavHolder">
 <section class="sideSection" id="sideSection">
     <div id="navMenuSide"><h3>Quick Nav</h3></div>
-        <a href="#" id="add"class="noDecoration"><div id="navLinkSide"><img class="testImage"src="add.png" >Add Student</div></a>
-        <a href="#" id="view" class="noDecoration"><div id="navLinkSide"><img class="testImage"src="hourglass.png" >View Sheets</div></a>
-        <a href="#" id="edit" class="noDecoration"><div id="navLinkSide"><img class="testImage"src="edit.png" >Edit Times</div></a>
-</section><img class="toggleTool" id="toggleTool" onclick="togglingMenu()" src="right133.png">
+        <a href="#" id="add"class="noDecoration"><div id="navLinkSide"><img class="testImage"src="images/add.png" >Add Student</div></a>
+        <a href="#" id="view" class="noDecoration"><div id="navLinkSide"><img class="testImage"src="images/hourglass.png" >View Sheets</div></a>
+        <a href="#" id="edit" class="noDecoration"><div id="navLinkSide"><img class="testImage"src="images/edit.png" >Edit Times</div></a>
+</section><img class="toggleTool" id="toggleTool" onclick="togglingMenu()" src="images/right133.png">
 </div>
 </html>

@@ -42,14 +42,71 @@ $dsn = "pgsql:"
         //Query to check user against the database
            
            echo "<br>".$username."<br>".$pass;
-           echo "<br>".$check_user;
+           echo "<br>".$check_user."<br>";
+           
+           
     //Check User Data Table 
             if($check_user>0){
-            echo "<script> alert(Congrats! You exist!);</script>";
+                session_start();
+                //username for session
+                $_SESSION['username']=$_POST['user'];
+                echo  $_SESSION['username']."<br>";
+         #User Email       
+        //grabbibng email query
+            $queryEmail= "SELECT email FROM userdata WHERE username='$username' AND password='$pass'";
+            //Grabs the result of the query
+                $resultEmail = $db->query($queryEmail);
+                while ($row = $resultEmail->fetch(PDO::FETCH_ASSOC)) {
+                //creates email var from fetched db result
+                $emailAddress=$row["email"];
+                }
+                //creates email session var
+                $_SESSION['email']=$emailAddress;
+                //test echo
+                 echo $emailAddress."<br>";
+                 
+        #User First Name
+            $queryFirstName= "SELECT first_name FROM userdata WHERE username='$username' AND  password='$pass'";
+            //Grabs the result of the query
+                $resultFirstName= $db->query($queryFirstName);
+                while ($row = $resultFirstName->fetch(PDO::FETCH_ASSOC)){
+                    //creates first name var from fetched db result
+                    $firstN=$row["first_name"];
+                }
+                //creates first name session var 
+                $_SESSION['firstName']=$firstN;
+                //test echo
+                 echo $firstN."<br>"; 
+                 
+        #User Last Name
+            $queryLastName= "SELECT last_name FROM userdata WHERE username='$username' AND  password='$pass'";
+            //Grabs the result of the query
+                $resultLastName= $db->query($queryLastName);
+                while ($row = $resultLastName->fetch(PDO::FETCH_ASSOC)){
+                    //creates first name var from fetched db result
+                    $lastN=$row["last_name"];
+                }
+                //creates first name session var 
+                $_SESSION['lastname']=$lastN;
+                //test echo
+                 echo $lastN."<br>"; 
+                 
+        #User Log Time
+        $currentDate=date("M , j , D , H:i A");
+        echo $currentDate;
+        
+        //  $resultTime= pg_query($dbconn,"UPDATE last_login FROM userdata SET last_login = '$currentDate' WHERE username='$username' AND password='$pass'");
+        //  if (!$resultTime){
+             
+        //  }
+            
+            // echo "<script> alert('Congrats! You exist!');</script>";
+            echo "<script>window.open('careerindex.php','_self')</script>";
             } else {
-                echo "<script>window.location.assign('login.php')</script>";
-                echo "<script> alert(Sorry! You don't exist!);</script>";
-                echo "<script> console.log('Sorry! You don't exist!');</script>";
+                
+                echo "<script> alert('Sorry! Incorrect user/password!');</script>";
+                echo "<script>window.location.assign('login.php');</script>";
+               
             }
 
 

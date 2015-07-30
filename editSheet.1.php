@@ -77,7 +77,7 @@ $downloadButton = "<form action='' method='GET'>
         header("Content-type: application/vnd.ms-excel");
         header("Content-Disposition: attachment; filename=$file");
 
-$query = "SELECT * FROM student_hours";
+$queryE = "SELECT * FROM student_hours";
     //Grabs the result of the query
     $result = $db->query($query);
 

@@ -6,30 +6,30 @@
 <?php include("header.html");?>
 <body>
 <section class="userSection">
-<center><img class="profilePic" src="profile.png"></center>
+<center><img class="profilePic" src="images/profile.png"></center>
 <table class="userHolder">
-<tr class="userStrip"><td>Username:</td><td style="text-align:right"><img class="info" src="info.png"></td></tr>
-<tr class="userStrip"><td>First Name:</td><td style="text-align:right"><img class="info" src="info.png"></td></tr>
-<tr class="userStrip"><td>Last Name:</td><td style="text-align:right"><img class="info" src="info.png"></td></tr>
-<tr class="userStrip"><td>CareerSource Email:</td><td style="text-align:right"><img class="info" src="info.png"></td></tr>
+<tr class="userStrip"><td>Username:</td><td style="text-align:right"><img class="info" src="images/info.png"></td></tr>
+<tr class="userStrip"><td>First Name:</td><td style="text-align:right"><img class="info" src="images/info.png"></td></tr>
+<tr class="userStrip"><td>Last Name:</td><td style="text-align:right"><img class="info" src="images/info.png"></td></tr>
+<tr class="userStrip"><td>CareerSource Email:</td><td style="text-align:right"><img class="info" src="images/info.png"></td></tr>
 </table>
 </section>
 <section class="quickAccess"><div class="accessIconHolder">
 	<center>
 	<a class="quickLink" href="weeklyreport.php"><div class="iconHolder">
-		<img class="icon"src="chart42.png"/>
+		<img class="icon"src="images/chart42.png"/>
 		<span class="caption">Weekly Reports</span>
 	</div></a>
-<a class="quickLink" href="index.1.html"><div class="iconHolder">
+<a class="quickLink" href="images/index.1.html"><div class="iconHolder">
     <img class="icon"src="medical50.png"/>
     <span class="caption">Attendance</span>
 </div></a>
 <a class="quickLink" href="#"><div class="iconHolder">
-    <img class="icon"src="configuration21.png"/>
+    <img class="icon"src="images/configuration21.png"/>
     <span class="caption">Settings</span>
 </div></a>
 <a class="quickLink" href="graduated.php"><div class="iconHolder2">
-    <img class="icon"src="Female_graduate_student_128.png"/>
+    <img class="icon"src="images/Female_graduate_student_128.png"/>
     <span class="caption">Graduated Students</span>
 </div></a>
 	</center>
@@ -39,15 +39,15 @@
 <section class="blockHolder">
 	<center>
 	<a class="quickLink" href="wtp.php"><div class="blocks">
-		<img class="quick2" src="woman-hand-smartphone-desk.jpg">
+		<img class="quick2" src="images/woman-hand-smartphone-desk.jpg">
 		<span class="caption2">WTP Resources</span>
 	</div></a>
 	<a class="quickLink" href="welding.php"><div class="blocks">
-		<img class="quick2" src="welding.jpg">
+		<img class="quick2" src="images/welding.jpg">
 		<span class="caption2">Welding Resources</span>
 	</div></a>
 	<a class="quickLink" href="#"><div class="blocks">
-		<img class="quick3" src="info.png">
+		<img class="quick3" src="images/info.png">
 		<span class="caption2">Class Information</span>
 	</div></a>
 	</center>

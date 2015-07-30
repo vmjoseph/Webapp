@@ -103,6 +103,7 @@ tr.editClass:nth-child(even){
         border-color:#F0F0F0
 
 }
+
 td{
 font-family: 'Droid Sans', sans-serif;
 }
@@ -344,7 +345,7 @@ border-radius:10px;
     background-color:#629C44;
     position:absolute;
     z-index:10;
-    margin-top:-20%;
+    /*margin-top:50;*/
     display:none;
       border-top-right-radius:6px;
        border-bottom-right-radius:6px;
@@ -712,3 +713,38 @@ display:inline-block;
 background-color:#92D36E;
 display:inline-block;
 }
+.gradForm{
+    display:none;
+    width:34%;
+}
+.loginCreds{
+   margin-left:12%;
+   margin-top:30px;
+    border-left-color: lightgrey;
+    border-right-color: lightgrey;
+    border-color: lightgrey;
+    width:30%;
+}
+tr.loginRow:nth-child(odd){
+     background-color:#F7FFEF;
+}
+tr.loginRow:nth-child(even){
+    background-color:#EBFFD6;
+}
+
+/*tr.editClass:nth-child(even){*/
+/*    padding: 10px 10px 10px 5px;*/
+/*    border-collapse:collapse;*/
+/*    background-color:#F7FFEF;*/
+/*         border-bottom:thin solid;*/
+/*        border-color:#F0F0F0*/
+
+/*}*/
+/*tr.editClass:nth-child(odd){*/
+/*    padding: 10px 10px 10px 5px;*/
+/*    border-collapse:collapse;*/
+/*    background-color:#EBFFD6;*/
+/*    border-bottom:thin solid;*/
+/*    border-color:#F0F0F0;*/
+
+/*}*/

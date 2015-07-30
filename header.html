@@ -8,18 +8,18 @@
 session_start();
 
 
-    // if (isset($_SESSION['username'])) {
-    //    echo "<div id='welcomeMessage'>Welcome, ". $_SESSION['firstName']. "</div>";
-    //  }else {
+     if (isset($_SESSION['username'])) {
+        echo "<div id='welcomeMessage'>Welcome, ". $_SESSION['firstName']. "</div>";
+     }else {
            
-     //      echo "<script>alert('you must be logged in to view this page')</script>";
-     //      echo "<script>window.open('login.php','_self')</script>";
-     //      echo "you have logged out successfully";
+           echo "<script>alert('you must be logged in to view this page')</script>";
+           echo "<script>window.open('login.php','_self')</script>";
+           echo "you have logged out successfully";
       
-     // }
+      }
 ?>
 <header>
-<a class="logLink" href="logout.php"><span class="logout"><img height="50px" width="auto" src="rightarrow10.png"><br>Logout</span></a>
+<a class="logLink" href="logout.php"><span class="logout"><img height="50px" width="auto" src="images/rightarrow10.png"><br>Logout</span></a>
 <section class="greenPatch"><a href="careerindex.php"><img class="headIcon" src="tampa-bay.png"></a></section>
 <ul class="navBar">
 <a class="navLink" href="download.php"<li class="navOption">first day orientation</li></a><!--

@@ -1,6 +1,6 @@
-<?php //include("header.html");?>
+<?php include("header3.html");?>
 <?php
-//session_start();
+session_start();
 
 ?>
 <html>
@@ -12,7 +12,7 @@
 </head>
 <body onload="fadeUp()">
 <form id="login" class="login" action="logCheck.php" method="POST"><center>
-<div id="titleArea"><img src="cpcworkspacelogo.png" class="t2"></div></center>
+<div id="titleArea"><img src="images/cpcworkspacelogo.png" class="t2"></div></center>
 <center>
 <table class="logTable">
 <tr><td colspan="2"><input type="text" class="field" value="username" onclick='javascript: this.value = ""' name="user"></td></tr>

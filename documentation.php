@@ -1,6 +1,7 @@
  
 <?php include("header.html");?>
 <body onload="set_style_from_cookie()">
+	<h1> Important Documents</h1>
 <center>
 <div class="iconClass">
 	<a class="quickLink" href="documentation2.pdf"><img class="prevCon" src="images/documentation1.png" alt="image goes here">
