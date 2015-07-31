@@ -18,6 +18,10 @@
 <div class="iconClass">
 	<a class="quickLink" href="How to Find Remaining Site Licenses.pdf"><img class="prevCon" src="images/documentation4.PNG" alt="image goes here">
 	<div class="prevCaption">Remaining Lisences </div></a>
+</div>
+<div class="iconClass">
+	<a class="quickLink" href="2013 Apply Project List.pdf"><img class="prevCon" src="images/applylist.png" alt="image goes here">
+	<div class="prevCaption">Word 2013 Shortned Project List </div></a>
 </div></center>
 </body>
 <?php include("footer.html");?>
