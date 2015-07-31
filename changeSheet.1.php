@@ -2,7 +2,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
     <?php include 'header.html';
-    include 'pullOutmenu.html';?>
+ //   include 'pullOutmenu.html';?>
     <?php echo "<form action='' method='POST'>";?>
 <?php
 //variables to hold connection requirements
