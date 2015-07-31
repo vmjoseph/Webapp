@@ -9,8 +9,8 @@
 <?php include("header.html");?>
 <body onload="set_style_from_cookie()">
 <h1> Graduated Students</h1>
-<p>Search for Students:<input type="search" id="searchRecords" name="searchRecords"><button type="button" id="searchButton" onclick="searchStudents()">Search</button>
-<button type="button" onclick="hideStudents()">Hide All</button><button type="button" onclick="showStudents()">Show All</button></p>
+<!--<p>Search for Students:<input type="search" id="searchRecords" name="searchRecords"><button type="button" id="searchButton" onclick="searchStudents()">Search</button>-->
+<!--<button type="button" onclick="hideStudents()">Hide All</button><button type="button" onclick="showStudents()">Show All</button></p>-->
 <section class="gradSection">
 <img class="profileIcon2" src="http://www.clker.com/cliparts/0/4/3/4/12198090302006169125female%20silhouette.svg.hi.png">
 <div class="name">Alvarez, Liana</div>
