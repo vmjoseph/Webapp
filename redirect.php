@@ -19,7 +19,6 @@ function startTimer(){
 </script>
 <body onload="startTimer()">
     <h1>Congrats!</h1>
-    <button onclick="startRedirect()">Push Me</button>
     <p>Your account has been created successfully. Please <a href='login.php'>login.</a></p>
     <span id="redirectHolder">Redirecting in:..<span id="numbers">10</span></span>
 </body>

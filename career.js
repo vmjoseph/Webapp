@@ -69,7 +69,7 @@ function get_cookie ( cookie_name )
 
 
 function goHome(){
-window.open("careerindex.html",_self)
+window.open("careerindex.html","_self");
 }
 function fadeUp(){
 	document.getElementById("titleArea").style.opacity="1.0";
@@ -81,74 +81,74 @@ function fadeUp(){
 
 function subMit(){
 	
-first = document.getElementById("firstName").value.replace(/\s{2,}/g, ' ');
-last = document.getElementById("lastName").value.replace(/\s{2,}/g, ' ');
-user = document.getElementById("userName").value;
-email = document.getElementById("emailAddress").value;
-pass = document.getElementById("password1").value;
-pass2 = document.getElementById("passwordConfirm").value;
-
-firstCheck=first.length;
-lastCheck=last.length;
-userCheck=user.length;;
-emailCheck=email.length;;
-pass1Check=pass.length;;
-confirmPasscheck=pass2.length;
-
-hasFirst= false;
-hasLast= false;
-hasUser= false;
-hasEmail= false;
-hasPass1= false;
-hasPass2= false;
-	if (firstCheck === 0 || first=== " "){
-	document.getElementById("nameNeeded").innerHTML="* Sorry, you must enter a first name";
-	 }else{
-		 hasFirst=true;
-		 console.log("hasFirst"); console.log(hasFirst);
-	 }
-	 
-	 if(lastCheck === 0 || last=== " "){
-		 document.getElementById("nameNeeded2").innerHTML="* Sorry, you must enter a last name";
-	 }else{
-		 hasLast=true;
-		 console.log("hasLast"); console.log(hasLast);
-	 } 
-	 
-	 if(userCheck === 0 || user=== " "){
-		 document.getElementById("nameNeeded3").innerHTML="* Sorry, you must enter a username";
-	 }else{
-		 hasUser=true;
-		 console.log("hasUser"); console.log(hasUser);
-	 }
-	 
-	 if(emailCheck === 0 || email=== " "){
-		 document.getElementById("nameNeeded4").innerHTML="* Sorry, you must enter an email";
-	 }else{
-		 hasEmail=true;
-		 console.log("hasEmail"); console.log(hasEmail);
-	 }
-	 
-	 if(confirmPasscheck === 0 || pass2=== " "){
-		 document.getElementById("nameNeeded6").innerHTML="* Sorry, you must enter a password";
-	 }else{
-		 hasPass2=true;
-		 console.log("hasPass2"); console.log(hasPass2);
-		 passMatch();
-
-	 }
-	 
-	 if(pass1Check === 0 || pass=== " "){
-		 document.getElementById("nameNeeded5").innerHTML="* Sorry, you must enter a password";
-	 }else{
-		 hasPass1=true;
-		 console.log("hasPass1"); console.log(hasPass1);
-	 } 
-	 if (hasFirst=== false || hasLast=== false || hasUser=== false || hasEmail=== false || hasPass1===false || hasPass2=== false){
-		alert("Sorry, you need to fill in all fields in order to continue");
-	 }else {
-			document.getElementById("registrationForm").submit();
-			}
+	first = document.getElementById("firstName").value.replace(/\s{2,}/g, ' ');
+	last = document.getElementById("lastName").value.replace(/\s{2,}/g, ' ');
+	user = document.getElementById("userName").value;
+	email = document.getElementById("emailAddress").value;
+	pass = document.getElementById("password1").value;
+	pass2 = document.getElementById("passwordConfirm").value;
+	
+			firstCheck=first.length;
+			lastCheck=last.length;
+			userCheck=user.length;;
+			emailCheck=email.length;;
+			pass1Check=pass.length;;
+			confirmPasscheck=pass2.length;
+			
+			hasFirst= false;
+			hasLast= false;
+			hasUser= false;
+			hasEmail= false;
+			hasPass1= false;
+			hasPass2= false;
+		if (firstCheck === 0 || first=== " "){
+		document.getElementById("nameNeeded").innerHTML="* Sorry, you must enter a first name";
+		 }else{
+			 hasFirst=true;
+			 console.log("hasFirst"); console.log(hasFirst);
+		 }
+		 
+		 if(lastCheck === 0 || last=== " "){
+			 document.getElementById("nameNeeded2").innerHTML="* Sorry, you must enter a last name";
+		 }else{
+			 hasLast=true;
+			 console.log("hasLast"); console.log(hasLast);
+		 } 
+		 
+		 if(userCheck === 0 || user=== " "){
+			 document.getElementById("nameNeeded3").innerHTML="* Sorry, you must enter a username";
+		 }else{
+			 hasUser=true;
+			 console.log("hasUser"); console.log(hasUser);
+		 }
+		 
+		 if(emailCheck === 0 || email=== " "){
+			 document.getElementById("nameNeeded4").innerHTML="* Sorry, you must enter an email";
+		 }else{
+			 hasEmail=true;
+			 console.log("hasEmail"); console.log(hasEmail);
+		 }
+		 
+		 if(confirmPasscheck === 0 || pass2=== " "){
+			 document.getElementById("nameNeeded6").innerHTML="* Sorry, you must enter a password";
+		 }else{
+			 hasPass2=true;
+			 console.log("hasPass2"); console.log(hasPass2);
+			 passMatch();
+	
+		 }
+		 
+		 if(pass1Check === 0 || pass=== " "){
+			 document.getElementById("nameNeeded5").innerHTML="* Sorry, you must enter a password";
+		 }else{
+			 hasPass1=true;
+			 console.log("hasPass1"); console.log(hasPass1);
+		 } 
+		 if (hasFirst=== false || hasLast=== false || hasUser=== false || hasEmail=== false || hasPass1===false || hasPass2=== false){
+			alert("Sorry, you need to fill in all fields in order to continue");
+		 }else {
+				document.getElementById("registrationForm").submit();
+				}
 }
 function passMatch(){
 	pass1Check=pass.length;;
